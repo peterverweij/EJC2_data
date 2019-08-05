@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?mso-application progid="Excel.Sheet"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns:html="http://www.w3.org/TR/REC-html40" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet">
+<DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
+<Author/>
+<LastAuthor/>
+<Created/>
+<Company/>
+<Version/>
+</DocumentProperties>
+<OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
+<AllowPNG/>
+</OfficeDocumentSettings>
+<ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
+<WindowHeight>10000</WindowHeight>
+<WindowWidth>20000</WindowWidth>
+<WindowTopX>-20</WindowTopX>
+<WindowTopY>-20</WindowTopY>
+<Date1904/>
+<AcceptLabelsInFormulas/>
+<ProtectStructure>False</ProtectStructure>
+<ProtectWindows>False</ProtectWindows>
+</ExcelWorkbook>
+<Styles>
+<Style ss:ID="Default" ss:Name="Normal">
+<Alignment ss:Vertical="Top"/>
+<Borders/>
+<Font ss:FontName="Verdana"/>
+<Interior/>
+<NumberFormat/>
+<Protection/>
+</Style>
+<Style ss:ID="s21">
+<Alignment ss:Vertical="Top"/>
+<Font ss:Color="#FFFFFF" ss:FontName="Verdana" ss:Bold="1"/>
+<Interior ss:Color="#000000" ss:Pattern="Solid"/>
+</Style>
+<Style ss:ID="s22">
+<Alignment ss:Vertical="Top"/>
+<Font ss:Color="#000000" ss:FontName="Verdana"/>
+</Style>
+</Styles>
+<Worksheet ss:Name="Collection1">
+<Table x:FullColumns="1" x:FullRows="1">
+
+<Column ss:AutoFitWidth="0"/><Column ss:AutoFitWidth="0"/><Row ss:StyleID="s21">
+
+<Cell><Data ss:Type="String">Source Url</Data></Cell><Cell><Data ss:Type="String">Price</Data></Cell></Row>
+
+<Row>
+
+<Cell ss:StyleID="s22"><Data ss:Type="String">https://www.expatistan.com/price/big-mac/johannesburg/USD</Data></Cell><Cell ss:StyleID="s22"><Data ss:Type="String">The average price is $4.20 (R 59). Find out the current prices for a whole list of products in Johannesburg (South Africa).</Data></Cell></Row><Row><Cell ss:StyleID="s22"><Data ss:Type="String">https://www.expatistan.com/price/big-mac/lilongwe/USD</Data></Cell><Cell ss:StyleID="s22"><Data ss:Type="String">The average price is $4.08 (2,965 Kwacha). Find out the current prices for a whole list of products in Lilongwe (Malawi).</Data></Cell></Row><Row><Cell ss:StyleID="s22"><Data ss:Type="String">https://www.expatistan.com/price/big-mac/harare/USD</Data></Cell><Cell ss:StyleID="s22"><Data ss:Type="String">The average price is $7 ($7). Find out the current prices for a whole list of products in Harare (Zimbabwe).</Data></Cell></Row><Row><Cell ss:StyleID="s22"><Data ss:Type="String">https://www.expatistan.com/price/big-mac/lusaka/USD</Data></Cell><Cell ss:StyleID="s22"><Data ss:Type="String">The average price is $4.80 (56 Kwacha). Find out the current prices for a whole list of products in Lusaka (Zambia).</Data></Cell></Row><Row><Cell ss:StyleID="s22"><Data ss:Type="String">https://www.expatistan.com/price/big-mac/luanda/USD</Data></Cell><Cell ss:StyleID="s22"><Data ss:Type="String">The average price is $9 (2,895 Kz). Find out the current prices for a whole list of products in Luanda (Angola).</Data></Cell></Row><Row><Cell ss:StyleID="s22"><Data ss:Type="String">https://www.expatistan.com/price/big-mac/maputo/USD</Data></Cell><Cell ss:StyleID="s22"><Data ss:Type="String">The average price is $5.66 (344 MT). Find out the current prices for a whole list of products in Maputo (Mozambique).</Data></Cell></Row><Row><Cell ss:StyleID="s22"><Data ss:Type="String">https://www.expatistan.com/price/big-mac/nairobi/USD</Data></Cell><Cell ss:StyleID="s22"><Data ss:Type="String">The average price is $5.19 (Shilling528). Find out the current prices for a whole list of products in Nairobi (Kenya).</Data></Cell></Row><Row><Cell ss:StyleID="s22"><Data ss:Type="String">https://www.expatistan.com/price/big-mac/dodoma/USD</Data></Cell><Cell ss:StyleID="s22"><Data ss:Type="String">The average price is $3.24 (7,430 Shilling). Find out the current prices for a whole list of products in Dodoma (Tanzania).</Data></Cell></Row><Row><Cell ss:StyleID="s22"><Data ss:Type="String">https://www.expatistan.com/price/big-mac/kampala/USD</Data></Cell><Cell ss:StyleID="s22"><Data ss:Type="String">The average price is $5.96 (22,384 Shilling). Find out the current prices for a whole list of products in Kampala (Uganda).</Data></Cell></Row><Row><Cell ss:StyleID="s22"><Data ss:Type="String">https://www.expatistan.com/price/big-mac/abuja/USD</Data></Cell><Cell ss:StyleID="s22"><Data ss:Type="String">The average price is $4.94 (1,794 ₦). Find out the current prices for a whole list of products in Abuja (Nigeria).</Data></Cell></Row><Row><Cell ss:StyleID="s22"><Data ss:Type="String">https://www.expatistan.com/price/big-mac/windhoek/USD</Data></Cell><Cell ss:StyleID="s22"><Data ss:Type="String">The average price is $5.49 (79 N$). Find out the current prices for a whole list of products in Windhoek (Namibia).</Data></Cell></Row><Row><Cell ss:StyleID="s22"><Data ss:Type="String">https://www.expatistan.com/price/big-mac/gaborone/USD</Data></Cell><Cell ss:StyleID="s22"><Data ss:Type="String">The average price is $5.26 (P56). Find out the current prices for a whole list of products in Gaborone (Botswana).</Data></Cell></Row></Table>
+<WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+<Print>
+<ValidPrinterInfo/>
+<HorizontalResolution>-4</HorizontalResolution>
+<VerticalResolution>-4</VerticalResolution>
+</Print>
+<PageLayoutZoom>0</PageLayoutZoom>
+<Selected/>
+<FreezePanes/>
+<SplitHorizontal>1</SplitHorizontal>
+<TopRowBottomPane>1</TopRowBottomPane>
+<ActivePane>2</ActivePane>
+<Panes>
+<Pane>
+<Number>3</Number>
+</Pane>
+<Pane>
+<Number>2</Number>
+<ActiveCol>0</ActiveCol>
+</Pane>
+</Panes>
+<ProtectObjects>False</ProtectObjects>
+<ProtectScenarios>False</ProtectScenarios>
+</WorksheetOptions>
+</Worksheet>
+</Workbook>

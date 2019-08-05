@@ -1,0 +1,9 @@
+Run shiny in docker container
+
+https://hub.docker.com/r/rocker/shiny/ 
+
+docker run --rm -p 3838:3838 \
+    -v /srv/shinyapps/:/srv/shiny-server/ \
+    -v /srv/shinylog/:/var/log/shiny-server/ \
+    rocker/shiny
+If you have an app in /srv/shinyapps/appdir, you can run the app by visiting http://localhost:3838/appdir/. 

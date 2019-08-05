@@ -1,0 +1,5 @@
+regex for line 1
+
+\$\d+\.\d+\s\([A-Z]+\s\d+\)
+
+The average price is $4.20 (R 59). Find out the current prices for a whole list of products in Johannesburg (South Africa

@@ -1,0 +1,100 @@
+<outwitAutomator>
+<documentproperties>
+<active />
+<url>https://tradingeconomics.com</url>
+<masterId>{cb1e0f5c-a391-4ce6-840b-c12e45527f59}</masterId>
+<name>tradingeconomics.com_moz</name>
+<version>1.0</version>
+<versionId>{cb1e0f5c-a391-4ce6-840b-c12e45527f59}</versionId>
+<automatorType>scraper</automatorType>
+<kernelVersion>8.0.0.46</kernelVersion>
+<creationOutfit>OutWit Hub</creationOutfit>
+<author />
+<company />
+<created>2019-06-09T11:27:36+02:00</created>
+<lastModified>2019-07-22T13:43:35+02:00</lastModified>
+<comments />
+<options /><hash>Z5wzrxB1Kn136uihg+xWvg==</hash>
+</documentproperties>
+<data>
+<line>
+<ok>true</ok>
+<description>country</description>
+<before>
+&lt;head id="ctl00_Head1"&gt;&lt;meta charset="utf-8" /&gt;&lt;title&gt;</before>
+<after>&lt;/title&gt;</after>
+<format/>
+<replace/>
+<separator/>
+<labels/>
+</line>
+<line>
+<ok>true</ok>
+<description>gdp_capita</description>
+<before>GDP per capita
+                                                            &lt;span class='table-unit small'&gt;(USD)&lt;/span&gt;
+                                                        &lt;/a&gt;&lt;/td&gt;
+                                                    &lt;td class="table-value"&gt;</before>
+<after>&lt;/td&gt;
+                                                    &lt;td class="table-value"&gt;&lt;span&gt;</after>
+<format/>
+<replace/>
+<separator/>
+<labels/>
+</line>
+<line>
+<ok>true</ok>
+<description>interest</description>
+<before>Interest Rate
+                                                            &lt;span class='table-unit small'&gt;(%)&lt;/span&gt;
+                                                        &lt;/a&gt;&lt;/td&gt;
+                                                    &lt;td class="table-value"&gt;</before>
+<after>&lt;/td&gt;</after>
+<format/>
+<replace/>
+<separator/>
+<labels/>
+</line>
+<line>
+<ok>true</ok>
+<description>unemployment</description>
+<before>Unemployment Rate
+                                                            &lt;span class='table-unit small'&gt;(%)&lt;/span&gt;
+                                                        &lt;/a&gt;&lt;/td&gt;
+                                                    &lt;td class="table-value"&gt;</before>
+<after>                                                    &lt;/td&gt;</after>
+<format/>
+<replace/>
+<separator/>
+<labels/>
+</line>
+<line>
+<ok>true</ok>
+<description>inflation</description>
+<before>Inflation Rate
+                                                            &lt;span class='table-unit small'&gt;(%)&lt;/span&gt;
+                                                        &lt;/a&gt;&lt;/td&gt;
+                                                    &lt;td class="table-value"&gt;</before>
+<after>&lt;/td&gt;
+                                                    &lt;td class="table-value"&gt;&lt;span&gt;</after>
+<format/>
+<replace/>
+<separator/>
+<labels/>
+</line>
+<line>
+<ok>true</ok>
+<description>debt</description>
+<before>Government Debt to GDP
+                                                            &lt;span class='table-unit small'&gt;(%)&lt;/span&gt;
+                                                        &lt;/a&gt;&lt;/td&gt;
+                                                    &lt;td class="table-value"&gt;</before>
+<after> &lt;/td&gt;
+                                                    &lt;td class="table-value"&gt;&lt;span&gt;</after>
+<format/>
+<replace/>
+<separator/>
+<labels/>
+</line>
+</data>
+</outwitAutomator>

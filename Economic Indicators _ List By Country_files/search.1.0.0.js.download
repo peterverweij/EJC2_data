@@ -1,0 +1,265 @@
+﻿(function () {
+    "use strict;"
+    console.info('TYPEAHEAD V2')
+
+    var ta_search_host = 'brains.tradingeconomics.com';
+    var ta_call_method = 'https';
+
+    /*if (window.isLocal) {
+        ta_search_host = 'daedalus:3000';
+        ta_call_method = 'http';
+    }*/
+
+    var moreUrlFormat = '/search.aspx?q=';
+    var ta_search_target = 'te';
+    ta_search_target = 'te-ta';
+    var ta_search_tab = 'all';
+
+    var ta_version = 'v2';
+
+    var myMobileHeaderId = "searchMobileHeader";
+    var myMainHeader = "mainHeader";
+
+    var myPlaceholderId = 'thisIsTheSearchPlaceholderId';
+    var myTinyRemoveId = "thisIsTheTinyRemoveId";
+    var the_search_box_id_tag = 'thisIstheSearchBoxIdTag';
+    var the_tiny_search_box_id_tag = 'thisIstheTinySearchBoxIdTag';
+    var mySearchBoxWrapperId = "thisIsTheSearchBoxWrapperId";
+    var mySmallGlyphiconId = 'thisIsTheSmallGlyphiconId';
+    var myTinyGlyphiconId = 'thisIsTheTinyGlyphiconId';
+    var myBigGlyphiconId = 'thisIsTheBigGlyphiconId';
+    var render_to_div = "dpSearch-resultCnt";
+    var render_to_tiny_div = "dpSearch-resultCnt-tiny";
+    var theBigGuyId = '.navbar-collapse';
+    var theLogoId = '.navbar-header';
+
+    var showingResults = false;
+    var searchIsWide = false;
+    var inTheProcessOfGrowing = false;
+    var inTheProcessOfHidding = false;
+
+    var widthTweak = 200;
+
+    var TE_TA_UNIVERSE = new Bloodhound({
+        datumTokenizer: Bloodhound.tokenizers.obj.whitespace('value'),
+        queryTokenizer: Bloodhound.tokenizers.whitespace,
+        limit: 250,
+        remote: {
+            url: ta_call_method + '://' + ta_search_host + '/' + ta_version + '/search/' + ta_search_tab,
+            replace: function (url, query) {
+                var _url = url + "?q=" + query + "&t=" + ta_search_target + "&nofacets=true";
+                console.log('_url', _url)
+                return _url;
+            }
+        }
+    });
+
+    TE_TA_UNIVERSE.initialize();
+
+    function onSelect(url, obj, term) {
+        //console.log('select', arguments)
+        //return;
+        if (obj.isListed) {
+            if (url == 'go_more_results' || url.indexOf('go_more_results') > 0) {
+                //console.log('TERM:', term);
+                //return;
+                goMore(term || $('#' + the_search_box_id_tag).val());
+            } else {
+                window.location.href = url;
+            }
+        } else {
+            goMore(term || $('#' + the_search_box_id_tag).val());
+        }
+    }
+
+    var myBigTypeahead = $('#' + the_search_box_id_tag).iec_typeahead({
+        items: 7,
+        autoSelect: false,
+        wrapper: 'default',
+        expandable: true,
+        source: TE_TA_UNIVERSE.ttAdapter(),
+        goDirectly: true,
+        allow_more: true,
+        searchBoxId: the_search_box_id_tag,
+        renderDiv: render_to_div,
+        forceRenderToTextBox: false,
+        selectionHandler: onSelect,
+        moreUrlFormat: moreUrlFormat
+    });
+
+    var myTinyTypeahead = $('#' + the_tiny_search_box_id_tag).iec_typeahead({
+        items: 7,
+        autoSelect: false,
+        wrapper: 'default',
+        expandable: true,
+        source: TE_TA_UNIVERSE.ttAdapter(),
+        goDirectly: true,
+        allow_more: true,
+        searchBoxId: the_tiny_search_box_id_tag,
+        renderDiv: render_to_tiny_div,
+        forceRenderToTextBox: false,
+        selectionHandler: onSelect,
+        moreUrlFormat: moreUrlFormat
+    });
+
+    $('#' + the_search_box_id_tag).on('focus', function (e) {
+        //console.log('I should unleash the bar')
+        unleashTheBar();
+    });
+
+    $('#' + the_search_box_id_tag).on('focusout', function (e) {
+        //return;
+        //console.log('e',e)
+        //console.log('trgt', $(e.target).attr('id'), $(e.target).attr('id') == mySearchBoxId.replace('#', ''))
+        if ($(e.target).attr('id') == the_search_box_id_tag) {
+            return;
+        }
+        inTheProcessOfGrowing = false;
+        //console.log('I should leash the bar')
+
+        leashTheBar();
+        //$('#srch-term').focus()
+    });
+
+
+    var unleashTheBar = function () {
+        myResultsDisplayer = '#' + render_to_div;
+        //mySearchResultsId = '#thisIstheSearchResultsIdTag';
+        //$('#srch-term').focus()
+        if (searchIsWide) return;
+        searchIsWide = true;
+
+        var bigGuyWidth = $(theBigGuyId).width();
+        var logoWidth = $(theLogoId).width();
+        //console.log('bigGuyWidth', bigGuyWidth)
+        //console.log('logoWidth', logoWidth)
+        var desiredWidth = Math.min(Math.max(400, bigGuyWidth - logoWidth - widthTweak), 800);
+        //console.log('desiredWidth', desiredWidth);
+        console.log('expand');
+        //$(the_search_box_id_tag).width(desiredWidth);
+        //console.log('the_search_box_id_tag', the_search_box_id_tag);
+        //console.log('mySearchBoxWrapperId', mySearchBoxWrapperId);
+
+        $('#' + mySearchBoxWrapperId).toggleClass("is-wide-open");
+
+        $('#' + the_search_box_id_tag).animate({ width: desiredWidth }, 301);
+        $('#' + the_search_box_id_tag).toggleClass("hidden-sm");
+        $('#' + the_search_box_id_tag).animate({ width: desiredWidth }, 10);
+
+        $(".nav>.dropdown").hide(300, function () {
+            if (inTheProcessOfGrowing) {
+                return;
+            }
+            inTheProcessOfGrowing = true;
+        });
+
+
+        $('#' + the_search_box_id_tag).focus();
+        if ($('#' + the_search_box_id_tag).val() && $('#' + the_search_box_id_tag).val().length) {
+            console.log('expand immediatly');
+            showResults();
+        }
+    }
+
+    var unleashTheTinyBar = function () {
+        //console.info('tiny')
+        myResultsDisplayer = '#' + render_to_tiny_div;
+        //mySearchResultsId = '#thisIstheTinySearchResultsIdTag';
+        var desiredWidth = 200;
+        $("#" + myMainHeader).hide(300, function () { });
+        $("#" + myMobileHeaderId).show(300, function () { });
+        $("#" + the_tiny_search_box_id_tag).focus();
+        if ($("#" + the_tiny_search_box_id_tag).val() && $("#" + the_tiny_search_box_id_tag).val().length) {
+            console.log('expand immediatly');
+            showResults();
+        }
+    }
+
+    var leashTheBar = function () {
+        if (!searchIsWide) return;
+        searchIsWide = false;
+        $('#' + mySearchBoxWrapperId).toggleClass("is-wide-open");
+        $('#' + the_search_box_id_tag).toggleClass("hidden-sm");
+        hideResults();
+        $('#' + the_search_box_id_tag).css('width', '');
+        $(".nav>.dropdown").show(100, function () {
+            //console.log('back to basics')
+        })
+    }
+
+    var leashTheTinyBar = function () {
+
+        $("#" + myMobileHeaderId).hide(300, function () { })
+        $("#" + myMainHeader).show(300, function () { })
+
+    }
+
+    var showResults = function () {
+        if (showingResults /*|| numberOfResults < 1*/) {
+            return
+        }
+        showingResults = true;
+        //$(mySearchResultsId).show()
+    }
+    var hideResults = function () {
+        showingResults = false;
+        //$(mySearchResultsId).hide()
+    }
+
+
+    function goMore(term) {
+        //console.log("go-more");
+        //return;
+        if (term && term != '') {
+            var url = moreUrlFormat + encodeURIComponent(term);
+            //window.open(url)
+            window.location = url;
+        }
+    }
+
+    $("#" + myBigGlyphiconId).click(function (e) {
+        //console.log('the guy clicked on the big icon')
+        if (searchIsWide) {
+            //console.log('search is wide, lets go ??')
+            goMore($('#' + the_search_box_id_tag).val())
+        } else {
+            //console.log('time to unleash it?')
+            unleashTheBar()
+        }
+    })
+
+    $("#" + mySmallGlyphiconId).click(function (e) {
+        //console.log('the guy clicked on the small icon')
+        if (searchIsWide) {
+            //console.log('search is wide, lets go ??')
+            goMore($('#' + the_search_box_id_tag).val())
+        } else {
+            //console.log('time to unleash it?')
+            unleashTheBar()
+        }
+    })
+
+
+    $("#" + myTinyGlyphiconId).click(function (e) {
+        console.log('tiny click')
+        if (searchIsWide) {
+            //console.info('search is wide, lets go ??')
+        } else {
+            //console.log('time to unleash it?')
+            unleashTheTinyBar()
+        }
+    })
+
+    $("#" + myTinyRemoveId).click(function (e) {
+        leashTheTinyBar()
+    })
+
+    $(document).on('click', function (e) {
+        //console.log('e', e)
+        //console.log('DOCCLICK - wide:', searchIsWide, 'hoverRes:', $(mySearchResultsId).is(':hover'), 'hoverBox:', $(mySearchBoxId).is(':hover'), 'focusBox:', $(mySearchBoxId).is(':focus'), 'hoverPlacH', $(myPlaceholderId).is(':hover'))
+        if (searchIsWide && !$('#' + render_to_div).is(':hover') && !$('#' + the_search_box_id_tag).is(':hover') && !$('#' + the_search_box_id_tag).is(':focus') && !$('#' + myPlaceholderId).is(':hover')) {
+            leashTheBar();
+        }
+    });
+
+})();

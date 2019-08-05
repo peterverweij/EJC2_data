@@ -1,0 +1,32 @@
+<outwitAutomator>
+<documentproperties>
+<active>true</active>
+<url>https://www.expatistan.com</url>
+<masterId>{459994cd-6255-48fc-bf3f-3f92ec9ab7c3}</masterId>
+<name>expatistan.com Scraper</name>
+<version>1.0</version>
+<versionId>{459994cd-6255-48fc-bf3f-3f92ec9ab7c3}</versionId>
+<automatorType>scraper</automatorType>
+<kernelVersion>6.0.0.219</kernelVersion>
+<creationOutfit>OutWit Hub</creationOutfit>
+<author />
+<company />
+<created>2018-11-06T14:12:18+01:00</created>
+<lastModified>2018-11-06T14:18:15+01:00</lastModified>
+<comments />
+<options /><hash>IGru5WgxwZXjJGnoSQku6A==</hash>
+</documentproperties>
+<data>
+<line>
+<ok>true</ok>
+<description>price</description>
+<before>&lt;/title&gt;
+&lt;meta name="description" content=</before>
+<after>/&gt;</after>
+<format></format>
+<replace></replace>
+<separator></separator>
+<labels></labels>
+</line>
+</data>
+</outwitAutomator>

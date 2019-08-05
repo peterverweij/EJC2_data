@@ -1,0 +1,82 @@
+ggplot(bm, aes(x=gdp.per.cap, y=dollar.price))+geom_smooth(method = lm, color='tomato') +
++     geom_linerange(aes(ymin=dollar.price, ymax=adj.index), color='royalblue', alpha=0.3) +
++     geom_point(alpha=0.1) +
++     geom_point(aes(y=adj.index), color='royalblue', alpha=0.5)
+
+plot(bm$local.price,bm$gdp.per.cap)
+
+ barplot(bm$local.price)
+
+ggplot(bm, aes(x=gdp.per.cap, y=dollar.price))+geom_smooth(method = lm, color='tomato')+geom_linerange(aes(ymin=bm$dollar.price, ymax=bm$adj.index), color='royalblue', alpha=0.3) +geom_point(alpha=0.1) + geom_point(aes(y=adj.index), color='royalblue', alpha=0.5)
+
+ggplot(bm, aes(x=`country`, y=adj.index, label=adj.index)) + geom_bar(stat='identity', aes(fill=adj.index), width=.5)+ 
+coord_flip()
+
+http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html
+
+ggplot(bm, aes(x=country, y=gdp.per.cap)) + 
++     geom_bar(stat="identity", width=.5, fill="tomato3")
+
+ggplot(bm, aes(x=country, y=dollar.price)) + 
++     geom_bar(stat="identity", width=.5, fill="blue")
+
+gg <- ggplot(bm, aes(x=local.price, y=gdp.per.cap)) + 
++     geom_point(aes(col=country, size=dollar.price)) + 
++     geom_smooth(method="loess", se=F) + 
++     xlim(c(0, 3000)) + 
++     ylim(c(0, 5000))
+plot(gg)
+
+ggplot(bm, aes(x=`country`, y=adj.index, label=adj.index)) + 
++     geom_point(stat='identity', fill="black", size=3)  +
++     geom_segment(aes(y = 0, 
++                      x = `country`, 
++                      yend = adj.index, 
++                      xend = `country`), 
++                  color = "black") + coord_flip()
+
+ggplot(bm, aes(x = dollar.price, y = gdp.per.cap)) + 
++     geom_point() +
++     stat_smooth(method = "lm", col = "red")
+
+fit1 <- lm(dollar.price ~ gdp.per.cap, data = bm)
+summary(fit1)
+
+Call:
+lm(formula = local.price ~ gdp.per.cap, data = bm)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-4725.9 -4023.3 -1143.2   781.3 17436.2 
+
+Coefficients:
+             Estimate Std. Error t value Pr(>|t|)  
+(Intercept) 5499.2665  2657.5364   2.069   0.0654 .
+gdp.per.cap   -0.8272     0.7016  -1.179   0.2657  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 6306 on 10 degrees of freedom
+  (1 observation deleted due to missingness)
+Multiple R-squared:  0.122,	Adjusted R-squared:  0.03425 
+F-statistic:  1.39 on 1 and 10 DF,  p-value: 0.2657
+
+> fit1 <- lm(dollar.price ~ gdp.per.cap, data = bm)
+summary(fit1)
+
+prediction with forecast
+model <- lm(bm$dollar.price ~ bm$gdp.per.cap, data = bm)
+> data1 <- data.frame(
++     speed = c(bm$gdp.per.cap)
++ )
+> predict(model, data1 = new.price)
+       1        2        3        4        5        6        7        8        9       10       11       12 
+5.387429 5.405997 5.404834 5.402938 5.398087 5.405911 5.404196 5.404905 5.405522 5.400916 5.391834 5.387432 
+
+gg <- ggplot(bm, aes(x=gdp.per.cap, y=dollar.price)) + 
++ geom_point(aes(col=country, size=dollar.price)) + geom_smooth(method="loess", se=F) + 
++ xlim(c(0, 5000)) + ylim(c(0, 50))
+> gg
+
+
+INTRO TO R: https://datacarpentry.org/R-genomics/index.html
